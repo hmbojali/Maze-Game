@@ -1,0 +1,6 @@
+Assets
+Packages
+ProjectSettings
+Scripts
+UserSettings
+names.txt
