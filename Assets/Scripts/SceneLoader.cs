@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject mainCanvas;
     [SerializeField] public int nextSceneIndex;
     [SerializeField] public Animator transition;
@@ -42,8 +43,5 @@ public class SceneLoader : MonoBehaviour
         transition.SetTrigger("End");
         DontDestroyOnLoad(mainCanvas);
         SceneManager.LoadScene(nextSceneIndex);
-
-
-
     }
 }

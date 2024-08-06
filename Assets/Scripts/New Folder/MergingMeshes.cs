@@ -20,12 +20,12 @@ using static UnityEngine.GridBrushBase;
 class MergingMeshes : MonoBehaviour
 {
 
-    [MenuItem("Tools/ProBuilder/Merge Meshes (Keep Objects)")]
+    [MenuItem("Tools/ProBuilder/Merge Meshes (new unfinished) (Keep Objects)")]
     static void KeepObjects()
     {
         MergingCouples(false);
     }
-    [MenuItem("Tools/ProBuilder/Merge Meshes (Remove Objects)")]
+    [MenuItem("Tools/ProBuilder/Merge Meshes (new unfinished) (Remove Objects)")]
     static void RemoveObjects()
     {
         MergingCouples();

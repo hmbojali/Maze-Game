@@ -35,6 +35,8 @@ public class PlayerControlMiniGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ActivateRealCam();
+
         //Cursor.lockState = CursorLockMode.Locked;
         //Cursor.visible = false;
         GameObject temp = GameObject.CreatePrimitive(PrimitiveType.Cube);
@@ -101,6 +103,7 @@ public class PlayerControlMiniGame : MonoBehaviour
     private void Moving(float speed)
     {
         rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionZ;
+        transform.rotation = Quaternion.Euler(0, 0, 0);
 
         float sideways = Input.GetAxis("Horizontal") * speed;
 
@@ -120,11 +123,9 @@ public class PlayerControlMiniGame : MonoBehaviour
 
     public void Rolling(float speed)
     {
-        float forward = Input.GetAxis("Vertical") * speed;
-        float sideways = Input.GetAxis("Roll") * speed / 2;
-        float around = Input.GetAxis("Horizontal") * speed / 2;
+        float around = Input.GetAxis("Horizontal") * speed;
 
-        Vector3 torque = Vector3.forward * -sideways + Vector3.right * forward + Vector3.up * around;
+        Vector3 torque = Vector3.forward* -around;
 
         // Calculate the center of mass relative to the object's position and rotation
         Matrix4x4 worldToLocalMatrix = transform.worldToLocalMatrix;
@@ -135,7 +136,8 @@ public class PlayerControlMiniGame : MonoBehaviour
         n[2] = centerOfMass;
 
         //removing rotation constraints
-        rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+        rigidbody.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationX|RigidbodyConstraints.FreezeRotationY;
+        transform.position = new Vector3(transform.position.x, transform.position.y, 497);
         rigidbody.AddRelativeTorque(torque, ForceMode.Acceleration);
 
         //jumping
@@ -181,6 +183,10 @@ public class PlayerControlMiniGame : MonoBehaviour
         RealCam.transform.position = temp;
     }
 
+    public void ActivateRealCam()
+    {
+        miniMapDepth = 1;
+    }
     private void ShapeShift()
     {
         if (Input.GetKeyDown(KeyCode.Keypad0))
