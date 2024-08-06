@@ -8,9 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace>
-    </RootNamespace>
-    <ProjectGuid>{B4903F4E-8422-2C1A-999D-13ABCE7FFF84}</ProjectGuid>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{14FBBFFD-B592-CCD2-94DA-195E114E76D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -953,7 +952,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="asset-store-tools-editor.csproj">
-      <Project>{4F4518C1-2EA4-3F68-AEA6-AC8AEC8DCE12}</Project>
+      <Project>{70288063-EA22-967E-5008-9A3BEFDCB790}</Project>
       <Name>asset-store-tools-editor</Name>
     </ProjectReference>
   </ItemGroup>
